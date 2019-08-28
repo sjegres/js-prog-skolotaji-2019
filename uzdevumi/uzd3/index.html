@@ -6,7 +6,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../styles.css">
     <script type="text/javascript" >
-      var objekts = {};
+    
+      let car = {type:"Fiat", model:"500", color:"white"};
+    
+      function paradit() {
+      var out = '';
+      for (var p in car) {
+        out += p + ': ' + car[p] + '\n';
+      }
+      alert(out);
+    } 
+    function pievienot(){
+      let p = document.getElementById("parametrs").value;
+      car[p]= document.getElementById("vertiba").value;
+      document.getElementById("parametrs").value="";
+      document.getElementById("vertiba").value="";
+      }
+    function dzest(){
+      let p = document.getElementById("parametrs").value;
+      delete car[p];
+      document.getElementById("parametrs").value="";
+      }
+     
     </script>
   </head>
   <body class="container">
@@ -17,9 +38,17 @@
         <li>Izveidot funkciju, kura dzēsīs atslēgu (un tās vērtību) no objekta</li>
         <li>Izveidot funkciju, kura izdrukās visas objekta atslēgas un to vērtības</li>
       </ol>
+      <button class="col-md-auto btn btn-danger" onClick="paradit()">Reload</button></br>
+       
+    <p>Parametrs:</p><input class="col-md-3 form-control" type="text" id="parametrs"  />
+    <p>Vērtība:</p><input class="col-md-3 form-control" type="text" id="vertiba" />
+    <button class="col-md-auto btn btn-success" onClick="pievienot()">Add parametr</button>
+    <button class="col-md-auto btn btn-danger" onClick="dzest()">Dzēst</button></br>
     </div>
     <div id="root">
+        
     </div>
+    
     <div id="info">
       <h3>Noderīgas saites</h3>
       <ul>
